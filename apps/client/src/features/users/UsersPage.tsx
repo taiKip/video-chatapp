@@ -1,14 +1,19 @@
-import React from 'react'
-import { useGetUsersQuery } from './userSlice'
+import { useGetUsersQuery } from "./userSlice";
 
 const UsersPage = () => {
-    const { data } = useGetUsersQuery();
-    console.log(data)
-  return (
-      <ul>
-          {data && data.map(user => <li key={user.username}>{ user.username}</li>)} 
-   </ul>
-  )
-}
+  const { data } = useGetUsersQuery();
 
-export default UsersPage
+  return (
+    <ul>
+      {data &&
+        data.map((user) => (
+          <li key={user.username}>
+                <h3>{user.username}</h3>
+                <p>{user.email}</p>
+          </li>
+        ))}
+    </ul>
+  );
+};
+
+export default UsersPage;
